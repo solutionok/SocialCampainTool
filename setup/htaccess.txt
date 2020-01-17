@@ -1,0 +1,57 @@
+########################################################
+#	/**					       
+# 	 * @package Social Ninja		       
+# 	 * @version 1.7			       
+# 	 * @author InspiredDev <iamrock68@gmail.com>   
+# 	 * @copyright 2015			       
+#	 */					       
+########################################################
+
+Options -Indexes -Multiviews
+
+<FilesMatch "(.class.php|.txt|.dat|cron|templates|.htaccess)$">
+	<IfModule mod_authz_core.c>
+	   # Apache 2.4
+	   Require all denied
+	</IfModule>
+	<IfModule !mod_authz_core.c>
+	   # Apache 2.2
+	   Order deny,allow
+	   Deny from all
+	</IfModule>
+</FilesMatch>
+
+<ifmodule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase __BASE__
+	
+	##START_FINE_URL
+	RewriteCond %{SCRIPT_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^login/(.*)/$ login.php?type=$1 [NC,QSA,L]
+	
+	RewriteCond %{SCRIPT_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^dashboard/(.*)/$ dashboard.php?show=$1 [NC,QSA,L]
+	
+	RewriteCond %{SCRIPT_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^admin/(.*)/$ admin.php?module=$1 [NC,QSA,L]
+	
+	RewriteCond %{SCRIPT_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^(.*)/$ $1.php [NC,QSA,L]
+	##END_FINE_URL
+	
+	RewriteCond %{REQUEST_URI} storage/(\d+)_(.*)$
+	RewriteRule ^storage/(\d+)_(\d+)/([a-zA-Z0-9_]+).([a-zA-Z0-9_\.]+)$ download.php?folder=$1_$2&file=$3.$4 [L]
+	
+	ServerSignature Off
+</ifmodule>
+
+<ifmodule mod_expires.c>
+<Filesmatch "\.(jpg|jpeg|png|gif|js|css|swf|ico)$">
+    ExpiresActive on
+    ExpiresDefault "access plus 1 month"
+</Filesmatch>
+</ifmodule>

@@ -1,0 +1,642 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>Social Ninja - Facebook Twitter Youtube Campaigner</title>
+	
+	<meta name="description" content="Social Ninja is an app that can be used to schedule campaigns and create contents for your Facebook, Twitter and Youtube accounts. It offers a tool to upload contents in bulk in an organized fashion and schedule them to be posted later on your social profiles. Content creator will help you to create rich contents, edit photos and videos, download images and videos from internet to be used in your campaigns. Social Ninja is also capable of sorting out posts with negative feedbacks from your fans and automatically delete them based on your preferences.
+">
+	<meta name="author" content="InspiredDev">
+	<meta name="copyright" content="InspiredDev">
+	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+	<meta name="date" content="2015-10-22T00:00:00+02:00">
+	
+	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+	<link rel="stylesheet" href="assets/js/google-code-prettify/prettify.css" media="screen">
+	<script src="assets/js/google-code-prettify/prettify.js"></script>
+
+	
+	
+	<script src="assets/js/jquery.js"></script>
+	
+	<script src="assets/js/jquery.scrollTo.js"></script>
+	<script src="assets/js/jquery.easing.js"></script>
+	
+	<script>document.createElement('section');var duration='500',easing='swing';</script>
+	<script src="assets/js/script.js"></script>
+	
+	<style>
+		html{background-color:#FFFFFF;color:#383838;}
+		::-moz-selection{background:#444444;color:#DDDDDD;}
+		::selection{background:#444444;color:#DDDDDD;}
+		#documenter_sidebar #documenter_logo{background-image:url(assets/images/image_7.png);}
+		a{color:#0000FF;}
+		.btn {
+			border-radius:3px;
+		}
+		.btn-primary {
+			  background-image: -moz-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: -ms-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: -webkit-gradient(linear, 0 0, 0 0088CC%, from(#DDDDDD), to(#0044CC));
+			  background-image: -webkit-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: -o-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: linear-gradient(top, #0088CC, #0044CC);
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088CC', endColorstr='#0044CC', GradientType=0);
+			  border-color: #0044CC #0044CC #bfbfbf;
+			  color:#FFFFFF;
+		}
+		.btn-primary:hover,
+		.btn-primary:active,
+		.btn-primary.active,
+		.btn-primary.disabled,
+		.btn-primary[disabled] {
+		  border-color: #0088CC #0088CC #bfbfbf;
+		  background-color: #0044CC;
+		}
+		hr{border-top:1px solid #EBEBEB;border-bottom:1px solid #FFFFFF;}
+		#documenter_sidebar, #documenter_sidebar ul a{background-color:#DDDDDD;color:#222222;}
+		#documenter_sidebar ul a{-webkit-text-shadow:1px 1px 0px #EEEEEE;-moz-text-shadow:1px 1px 0px #EEEEEE;text-shadow:1px 1px 0px #EEEEEE;}
+		#documenter_sidebar ul{border-top:1px solid #AAAAAA;}
+		#documenter_sidebar ul a{border-top:1px solid #EEEEEE;border-bottom:1px solid #AAAAAA;color:#444444;}
+		#documenter_sidebar ul a:hover{background:#444444;color:#DDDDDD;border-top:1px solid #444444;}
+		#documenter_sidebar ul a.current{background:#444444;color:#DDDDDD;border-top:1px solid #444444;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body class="documenter-project-social-ninja">
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ul id="documenter_nav">
+			<li class="sub"><a class="current" href="#documenter_cover">Start</a></li>
+				
+			<li class="sub"><a href="#quick_start_guide" title="Quick Start Guide">Quick Start Guide</a>
+				<ul>
+					<li><a href="#quick_start_guide_setup">Setup</a></li>
+                    <li><a href="#quick_start_guide_image_preview">Image Preview</a></li>
+					<li><a href="#quick_start_guide_video_preview">Video preview</a></li>
+				</ul>
+			</li>
+			<li class="sub"><a href="#setup_guide" title="Setup Guide">Setup Guide</a>
+				<ul>
+                	<li><a href="#setup_guide_server_requirements">Server Requirements</a></li>
+					<li><a href="#setup_guide_ffmpeg_installation">ffmpeg installation</a></li>
+					<li><a href="#setup_guide_database">Database</a></li>
+					<li><a href="#setup_guide_misc_setup">Misc Setup</a></li>
+					<li><a href="#setup_guide_app_setup">App Setup</a></li>
+					<li><a href="#setup_guide_add_an_admin">Add an Admin</a></li>
+					<li><a href="#setup_guide_cron_setup">Cron Setup</a></li>
+				</ul>
+			</li>
+			<li class="sub"><a href="#user_guide" title="User Guide">User Guide</a>
+				<ul>
+					<li><a href="#user_guide_adding_user_accounts">Adding user accounts</a></li>
+					<li><a href="#user_guide_adding_social_accounts">Adding social accounts</a></li>
+					<li><a href="#user_guide_app_setup">App Setup</a></li>
+					<li><a href="#user_guide_creating_folders_and_uploading_files">Creating folders and uploading files</a></li>
+                    <li><a href="#user_guide_captioning">Adding captions to files</a></li>
+                    <li><a href="#user_guide_links">Posting links</a></li>
+                    <li><a href="#user_guide_post_now">Post a file now</a></li>
+					<li><a href="#user_guide_facebook_fanpages,_groups_and_events">Facebook fanpages, groups and events</a></li>
+					<li><a href="#user_guide_youtube_upload_default_settings">Youtube upload default settings</a></li>
+					<li><a href="#user_guide_rss_feeds">RSS feeds</a></li>
+					<li><a href="#user_guide_creating_and_managing_schedule_groups">Creating and managing schedule groups</a></li>
+					<li><a href="#user_guide_advanced_schedule_options">Advanced Schedule Options</a></li>
+                    <li><a href="#user_guide_using_advanced_schedule_options">Using advanced scheule options</a></li>
+                    <li><a href="#user_guide_bulk_import">Bulk facebook groups and events import</a></li>
+                    <li><a href="#user_guide_categories">Creating and managing categories</a></li>
+                    <li><a href="#user_guide_bulk_page_sel">Page selection in bulk</a></li>
+					<li><a href="#user_guide_feed_cleanup">Feed cleanup</a></li>
+					<li><a href="#user_guide_facebook_account_merge">Facebook Account Merge</a></li>
+					<li><a href="#user_guide_media_editor">Media Editor</a></li>
+					<li><a href="#user_guide_meme_generator">Meme Generator</a></li>
+					<li><a href="#user_guide_html_to_image_converter">HTML to image converter</a></li>
+					<li><a href="#user_guide_text_to_watermark_image_converter">Text to watermark image converter</a></li>
+					<li><a href="#user_guide_slideshow_creator">Slideshow creator</a></li>
+					<li><a href="#user_guide_uploading_watermark_logos_or_view_finders">Uploading watermark logos or view finders</a></li>
+					<li><a href="#user_guide_managing_queued_videos">Managing Queued Videos</a></li>
+					<li><a href="#user_guide_image_and_video_downloader">Image and Video Downloader</a></li>
+				</ul>
+			</li>
+			<li class="sub"><a href="#sources_and_credits" title="Sources and Credits">Sources and Credits</a></li>
+
+		</ul>
+		<div id="documenter_copyright">Copyright InspiredDev 2015<br>
+		made with the <a href="http://rxa.li/documenter">Documenter v2.0</a> 
+		</div>
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover">
+	<h1>Social Ninja</h1>
+	<h2>Social Ninja - Facebook Twitter Youtube Campaigner</h2>
+	<div id="documenter_buttons">
+		<a href="http://inspire007.com/envato/socialninja/login/" class="btn btn-primary btn-large">View Demo</a> <a href="https://www.youtube.com/playlist?list=PL1e0pvqs5ghVRSmbE0MbANvljWB8d125P" class="btn btn-large">Video Tutorial</a>
+        <a href="http://codecanyon.net/item/social-ninja-facebook-twitter-youtube-campaigner/13345502?ref=inspireddev" class="btn btn-primary btn-large">Buy Now</a> 
+	</div>
+	<hr>
+	<ul>
+	<li>Created: 10-Oct-2011</li>
+	<li>Latest update: 28-Nov-2015</li>
+	<li>Author: InspiredDev</li>
+	<li><a href="http://inspire007.com" target="_blank">inspire007.com</a></li>
+	<li>Author Email: <a href="mailto:&#105;&#97;&#109;&#114;&#111;&#99;&#107;&#54;&#56;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#105;&#97;&#109;&#114;&#111;&#99;&#107;&#54;&#56;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></li>
+	</ul>
+	<p>Thank you for purchasing the script. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form here. Thanks so much!</p>
+	</section>
+	
+	<section id="quick_start_guide">
+	<div class="page-header"><h3>Quick Start Guide</h3><hr class="notop"></div>
+    <h4 id="quick_start_guide_setup">Setup</h4>
+<pre class="prettyprint lang-css linenums">
+First unzip the files into a folder.
+
+Open your browser and navigate to the url where you copied the scripts.
+
+For the first time, the app will redirect you to the setup page.
+
+If your server meets the minimum requirements for setup, the setup wizard will allow you to continue otherwise it will show error message. Please adjust your server settings if any error message appears.
+
+If there is no error message but warning message (brown colored warning messages), you can edit server config for optimum performance. However if you wish, you can ignore those messages but remember that some features may not work properly if ignored.
+
+Input your database info into the input boxes as shown in image 1. Test your connection and press next button. This will copy sql tables into your database.
+
+In the next step, most of the fields will be auto detected and auto filled. See image 2. If some fields are not auto completed, please complete those fields with appropraite values. Take help from <strong>Setup Guide</strong> section if needed.
+
+Next step is <strong>App Setup</strong>. See image 3. You do not have to complete this right now. Please check <strong>Setup Guide</strong> section for more info. 
+
+Next step is <strong>Add Admin</strong>. See image 4. Add an admin account so you can manage the site and create users.
+
+In the final step (image 5 &amp; 6), the app attempts to add cron task automatically in the server. However, if it fails to do it automatically please follow the instructions shown on the screen and complete the tasks manually.
+
+After setup is complete, login with your admin login and password and start creating campaigns and folders. If you did not add an app while setup, you have to add app from <strong>dashboard > settings</strong> tab before you can add social accounts.
+</pre>
+<h4 id="quick_start_guide_image_preview">Image Preview</h4>
+<p>&nbsp;
+	</p>
+<p>
+	<img alt="First Step" src="assets/images/image_1.png" style="width: 500px; height: 257px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img alt="Misc Setup" src="assets/images/image_2.png" style="width: 500px; height: 257px;"></p>
+<p>&nbsp;
+	</p>
+<p>
+	<img alt="App Setup" src="assets/images/image_3.png" style="width: 500px; height: 257px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img alt="Add Admin" src="assets/images/image_4.png" style="width: 500px; height: 257px;"></p>
+<p>&nbsp;
+	</p>
+<p>
+	<img alt="Final Step" src="assets/images/image_5.png" style="width: 500px; height: 257px;">&nbsp;&nbsp;&nbsp;&nbsp;<img alt="Cron Setup" src="assets/images/image_6.png" style="width: 500px; height: 257px;"></p>
+<p>&nbsp;
+	</p>
+<h4 id="quick_start_guide_video_preview">Video preview</h4>
+<p>&nbsp;
+	</p>
+
+<p>
+	<iframe width="600" height="400" src="https://www.youtube.com/embed/_GYpjMsf2ik" frameborder="0" allowfullscreen></iframe>
+</p>
+
+</section>
+<section id="setup_guide">
+	<div class="page-header"><h3>Setup Guide</h3><hr class="notop"></div>
+<h4 id="setup_guide_server_requirements">Server Requirements</h4>
+<p>
+	In order to use Social Ninja, your server must pass the following requirements-</p>
+<pre class="prettyprint lang-css linenums">
+Apache Webserver
+
+PHP version must be at least 5.2 or higher
+
+Mysql Database engine with php mysqli extension
+
+Server must allow htaccess rules
+
+PHP must have write permissions to folders and files. It is suggested that you use SuPHP instead of modPHP
+
+curl library must be installed and enabled to use in PHP
+
+Upload max size and post max size at least 10MB
+</pre>
+<p>
+	The following requirements are suggested but not necessary. However some functions of the script may fail if these requirements are not fulfilled-</p>
+<pre class="prettyprint lang-css linenums">
+ffmpeg installed on server
+
+exec() function enabled and callable via PHP to use ffmpeg
+
+Upload max size and post max size 512MB for large video upload
+
+If you actively use video editor and video watermarking with large and high resolution videos, you must have enough CPU and RAM in your server to encode videos. Low CPU or RAM may result in encode failure
+</pre>
+<p>
+	<small>*To change maximum execution time, allowed memory limit, upload and post max size, you have to edit php.ini file</small><br>
+	<small>*The software will override maximum execution time using set_time_limit() function. In some cases, PHP is not allowed to increase time limit using set_time_limit(), in those cases scripts may fail while watermarking or posting albums</small><br>
+	<small>*Low memory allowance for PHP may result in ffmpeg encoder failures</small><br>
+	<small>*Changing max execution time and memory is not necessary until long running scripts fail to work correctly</small></p>
+<br>
+<br>
+<h4 id="setup_guide_ffmpeg_installation">ffmpeg installation</h4>
+<p>
+	If you want to use video editing, watermarking and slideshow creation function enabled, you must install ffmpeg on your server.<br>
+	ffmpeg installation guide is available here <a href="https://trac.ffmpeg.org/wiki/CompilationGuide" target="_blank">https://trac.ffmpeg.org/wiki/CompilationGuide</a><br>
+	After installing ffmpeg from this guide, ffmpeg is copied in to <b>/root/bin</b> directory which is not accessible to PHP. So you must copy those files to <b>/usr/local/bin</b> and use that path while setup. For windows use compiled ffmpeg.exe from <a href="https://ffmpeg.org/download.html#build-windows">https://ffmpeg.org/download.html#build-windows</a><br>
+	If you don&#39;t install ffmpeg please uncheck <b>Video Watermarking Enabled</b> and <b>Video Editing Enabled</b> options while setup<br><br>
+    Please note that ffmpeg installation is not covered in support. You will have to install it yourself or hire someone to install it for your server.
+	&nbsp;</p>
+<h4 id="setup_guide_database">Database</h4>
+<p>
+	You need a mysql database engine to run this script. In database setup side, you just have to create an empty database and an user (if needed). Actually you can use any user with access permission to the created database. Remember this user details, database name and enter them in setup step-1. Setup wizard then automatically creates the tables for you.<br>
+	&nbsp;</p>
+<h4 id="setup_guide_misc_setup">Misc Setup</h4>
+<p>
+	The following fields are needed for setup-</p>
+<pre class="prettyprint lang-css linenums">
+"Site URL": <b>THIS IS VERY IMPORTANT</b>. Site URL is the url to the directory where you copied the script. This value is automatically filled. However, you must double check if automatically filled value is correct or not. If incorrect please ammend it before submitting.
+
+"Site Name": This is upto you. Choose any sitename. This name will be displayed in the home page and title
+
+"ffmpeg command path": Put the ffmpeg path that you installed in <b>ffmpeg installation</b> section. This value is usually <b>/usr/local/bin/ffmpeg</b> or <b>/usr/bin/ffmpeg</b>. ffmpeg is necessary to watermark video, creating slideshow and screenshots of video. If you have spaces in the path of ffmpeg, please double quote the path. For example : <b>&quot;/usr/local/bin/test folder/ffmpeg&quot;</b>
+
+"seo url": Enable seo url options will generate SEO friendly URL. Anyways, the server must allow rewrite rules to be overridden to use this feature.
+Facebook, Twitter, Youtube Enable: If you uncheck these options, login or posting to the corresponding sites will be disabled
+
+"Media Plugin": Media plugin lets you edit, crop, watermark images and also lets you create meme from images. This option does not consume any server resource. All editing and effects are applied using HTML5 Canvas. So you can allow this plugin without any hesitation. Users can import created images through the plugin to their folders
+
+"Downloader plugin": This plugin allows users to download videos from youtube, dailymotion, vimeo, facebook and import them to their folders. This plugin will consume bandwidth while downloading videos. So enable this plugin considering your bandwidth allowance.
+
+"Image/Video Watermarking": As the name implies
+
+"Image and Video editor": You can optionally select which editor will be enabled. Media plugin lets you enable/disable both of these editors together where image and video editor options allow you to enable/disable them selectively.
+
+"Public Signup": This options determines whether visitors are allowed to create an account on the site. This option is turned off by default.
+</pre>
+<p>
+	<br>
+	&nbsp;</p>
+<h4 id="setup_guide_app_setup">App Setup</h4>
+<p>
+	App setup can be skipped primarily. If you want users use their own app, please leave these fields blank. Letting users use their own app is a good idea to avoid suspension of your own apps when users post illegal contents or bulk contents.</p>
+<pre class="prettyprint lang-css linenums">
+"Facebook App Setup": Create a facebook app from here <a href="https://developers.facebook.com/apps/" target="_blank">https://developers.facebook.com/apps/</a>. After creating the app just note the app id and secret keys to put while setup.
+
+"Twitter App Setup": Create an app from <a href="https://apps.twitter.com/" target="_blank">https://apps.twitter.com/</a>. Please put any URL as Callback URL in twitter app settings. Without setting this option, you will not be able to login. As usual note the app id and secret. Also don't forget to put a callback url in your app settings. Any callback url will work.
+
+"Youtube App Setup": This is somehow a complex task. Follow the steps here <a href="https://developers.google.com/youtube/registering_an_application?hl=en" target="_blank">https://developers.google.com/youtube/registering_an_application?hl=en</a>. When you create an OAuth 2.0 application, you have to enter <b>redirect URIs</b>. Use SITE URL + <b>dologin.php</b> as <b>redirect URI</b>. For example if your Site URL is http://abc.com/thisscript/ then <b>redirect URI</b> will be http://abc.com/thisscript/dologin.php. <b>Youtube Client Id</b> and <b>Youtube Client Secret</b> is the id and secret of <b>OAuth 2.0 client ID</b> and <b>Youtube Developer Key</b> is the <b>Server API key</b>. URL for google app management is <a href="https://console.developers.google.com/project" target="_blank">https://console.developers.google.com/project</a>. Make sure you enable youtube data api in google console project.
+</pre>
+
+<p>
+	Watch video on facebook app setup: <a href="https://www.youtube.com/v/rw8wiEAC8iQ&start=9&end=140&autoplay=1" target="_blank">https://www.youtube.com/v/rw8wiEAC8iQ&amp;start=9&amp;end=140&amp;autoplay=1</a>
+    <br/><br/>
+    Watch video on twitter app setup: <a href="https://www.youtube.com/v/rw8wiEAC8iQ&start=141&end=248&autoplay=1" target="_blank">https://www.youtube.com/v/rw8wiEAC8iQ&mp;start=141&amp;end=248&amp;autoplay=1</a>
+    <br/><br/>
+    Watch video on youtube app setup: <a href="https://www.youtube.com/v/rw8wiEAC8iQ&start=249&end=413&autoplay=1" target="_blank">https://www.youtube.com/v/rw8wiEAC8iQ&amp;start=249&amp;end=413&amp;autoplay=1</a>
+    
+</p>
+<br>
+<br>
+<h4 id="setup_guide_add_an_admin">Add an Admin</h4>
+<p>
+	In last step, you will have to add an admin account to operate the site. This account will be super admin having the administrative power to operate the Site. You will have to enter a valid email id and at least a 6 characters long password to continue.<br>
+	&nbsp;</p>
+<h4 id="setup_guide_cron_setup">Cron Setup</h4>
+<p>
+	In linux servers, the script will try to automatically add necessary cron task. But if failed, it will alert you and ask you to set the cron tasks yourself. Necessary cron commands will be shown in the last step of setup. All the scripts must run each minute. If you have windows server, you will have to setup cron yourself as the script is not capable of adding cron in windows.<br>
+	<br>
+	Thats all you need to know before setup. You can also change almost all the options later in admin panel. After setup you can login with admin password and create folders, files and campaigns. Please watch the after setup guide video below-<br>
+	&nbsp;</p>
+    
+<p>
+	Setup is now complete. After setup login with your admin password and add new custom membership plan or user if needed (not necessary). Watch the video <b>Getting Started with Admin Panel</b> : <a href="https://www.youtube.com/watch?v=Nauuu4qeF58" target="_blank">https://www.youtube.com/watch?v=Nauuu4qeF58</a>
+</p>
+    
+</section>
+<section id="user_guide">
+	<div class="page-header"><h3>User Guide</h3><hr class="notop"></div>
+<h4 id="user_guide_adding_user_accounts">Adding user accounts</h4>
+<p>
+	A user can join by signing up for an account when signup is enabled or can be added by an admin from <b>Admin > Admin Panel</b>. In this page click the <b>Add New User</b> button and fill up the form with necessary details. When an admin adds an user, the user is emailed with their login information i.e. email and password. Using the email and password, they can access their account. However, admins can choose how much server space they can use for uploads and how many posts they can create each day using this software.<br>
+	&nbsp;</p>
+
+<p>
+	<iframe width="600" height="400" src="https://www.youtube.com/embed/rw8wiEAC8iQ" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<br>
+<br>
+<h4 id="user_guide_adding_social_accounts">Adding social accounts</h4>
+<p>
+	Each user can add social accounts from <b>Settings</b> tab in dashboard. However, one cannot add account from a social media which is disabled from admin panel. If admins did not configured any global app to be used, each user must add their own social media apps. Follow the next section for app setup. When social accounts are added, all the access tokens are refreshed and in case of facebook, all your pages, groups and events are refreshed. You have the options to delete an account from server once added.<br>
+	&nbsp;</p>
+<h4 id="user_guide_app_setup">App Setup</h4>
+<p>
+	In this software, apps can be setup in two ways - either by admin or by the users. When admins setup apps, all the users can use that app. But if any user wants to use their own app, they can setup different app from their dashboard. If no apps has been setup by admins, users must setup their own app before adding accounts.</p>
+<pre class="prettyprint lang-css linenums">
+"Facebook App Setup": Create a facebook app from here <a href="https://developers.facebook.com/apps/" target="_blank">https://developers.facebook.com/apps/</a>. After creating the app just note the app id and secret keys to put while setup.
+
+"Twitter App Setup": Create an app from <a href="https://apps.twitter.com/" target="_blank">https://apps.twitter.com/</a>. As usual note the app id and secret
+
+"Youtube App Setup": This is somehow a complex task. Follow the steps here <a href="https://developers.google.com/youtube/registering_an_application?hl=en" target="_blank">https://developers.google.com/youtube/registering_an_application?hl=en</a>. When you create an OAuth 2.0 application, you have to enter <b>redirect URIs</b>. Use SITE URL + <b>dologin.php</b> as <b>redirect URI</b>. For example if your Site URL is http://abc.com/thisscript/ then <b>redirect URI</b> will be http://abc.com/thisscript/dologin.php. <b>Youtube Client Id</b> and <b>Youtube Client Secret</b> is the id and secret of <b>OAuth 2.0 client ID</b> and <b>Youtube Developer Key</b> is the <b>Server API key</b>. URL for google app management is <a href="https://console.developers.google.com/project" target="_blank">https://console.developers.google.com/project</a>. Don&#39;t forget to turn on Youtube Data API on your console project.
+</pre>
+<p>
+	Watch video on facebook app setup: <a href="https://www.youtube.com/v/rw8wiEAC8iQ&start=9&end=140&autoplay=1" target="_blank">https://www.youtube.com/v/rw8wiEAC8iQ&amp;start=9&amp;end=140&amp;autoplay=1</a>
+    <br/><br/>
+    Watch video on twitter app setup: <a href="https://www.youtube.com/v/rw8wiEAC8iQ&start=141&end=248&autoplay=1" target="_blank">https://www.youtube.com/v/rw8wiEAC8iQ&mp;start=141&amp;end=248&amp;autoplay=1</a>
+    <br/><br/>
+    Watch video on youtube app setup: <a href="https://www.youtube.com/v/rw8wiEAC8iQ&start=249&end=413&autoplay=1" target="_blank">https://www.youtube.com/v/rw8wiEAC8iQ&amp;start=249&amp;end=413&amp;autoplay=1</a>
+    
+</p>
+<br>
+<br>
+<h4 id="user_guide_creating_folders_and_uploading_files">Creating folders and uploading files</h4>
+<p>
+	You can create new folders and upload files as per your limit set by admins. Only jpg, png and gif files are accepted among images and wmv, flv, mp4, avi, mpeg, m4v, mpg, mkv, 3gp, mov, webm are accepted among video files. Maximum size for image upload is 5MB and maximum size for video upload is 512MB. These limits can be configured by editing <b>config.php</b> file. The mentioned limits are set by default. In case of images and text files, you can only add a caption that will be posted along the image or as a text status. But for video uploads, you have the options to set title, description, tags and categories. These values are useful for youtube uploads. To edit title, description, tags etc for a video, click the cog icon under the file title bar. You can use <b>spintax</b> and <b>nested spintax</b> in file captions, text status and comments.<br>
+	&nbsp;</p>
+
+<h4 id="user_guide_captioning">Adding captions to files</h4>
+<p>
+	You can add a text caption/link to any of your files. Caption can be added either before uploading files or after upload. If you want to add caption to all of the files you upload next, click the <b>Caption</b> button on top of the file upload page. Then save your caption in the text box. You can also use file name as caption. For this just check the tickbox beside <b>Use filename as caption</b> label.<br/><br/>
+    
+    From version 1.6, we introduced use of variables in captions. Available list of variables are given below-
+    
+<pre class="prettyprint lang-css linenums">
+[SCHEDULE_NAME]<br/>Shortcut : Ctrl+S
+(Name of the schedule group will be posted when this variable is used)
+
+[FIRST_NAME]<br/>Shortcut : Ctrl+F
+(First name of your social profile will be posted)
+
+[LAST_NAME]<br/>Shortcut : Ctrl+L
+(Last name of your social profile will be posted)
+
+[FULL_NAME]<br/>Shortcut : Ctrl+U
+(Full name of your social profile will be posted)
+
+[TIME]<br/>Shortcut : Ctrl+T
+(Posting time will be added in this format hh:mm:ss AM/PM)
+
+[DATE]<br/>Shortcut : Ctrl+D
+(Posting date will be added in this formart dd-Mon-Year)
+
+[DATE_TIME]<br/>Shortcut : Ctrl+E
+(Date time of post in the format dd-Mon-Year hh:mm:ss AM/PM)
+
+[PAGE_NAME]<br/>Shortcut : Ctrl+P
+(Page name where the status is being posted)
+
+[FILE_NAME]<br/>Shortcut : Ctrl+I
+(Name of the uploaded file will be posted)
+
+[TAG_ME]<br/>Shortcut : Ctrl+M
+(You facebook profile will be tagged in post. Facebook api currently does not work tagging with @[id] within app. So your profile will be tagged in <b>- with</b>)
+(* works with facebook pages text status, links, photo and twitter tweets only. This will not work with youtube, facebook profile, groups or events posts)
+
+[GREETINGS]<br/>Shortcut : Ctrl+G
+(Good morning/afternoon/evening/night greetings with post. To customize messages edit your default language file)
+</pre>  
+    
+</p>
+
+<p>
+	Watch the video to learn how to use variables in post : <a href="https://www.youtube.com/watch?v=pU4xJ73269E" target="_blank">https://www.youtube.com/watch?v=pU4xJ73269E</a>
+</p>
+
+<h4 id="user_guide_links">Posting links</h4>    
+<p>
+	In order to post links, create a text file and put your link there. If a valid link is found we will automatically detect the link and embed it into status.<br/>
+    However, if you want to use your own link title, image and description for facebook - click the cog icon beside the text file. It will open a form to fill up custom link title, description and images.
+</p>
+
+<p>
+	Learn how to add custom title, description & image in link : <a href="https://www.youtube.com/watch?v=NOT4gMaliok" target="_blank">https://www.youtube.com/watch?v=NOT4gMaliok</a>
+</p>
+
+<h4 id="user_guide_post_now">Post a file now</h4>
+<p>
+This option has been introduced from version 1.7. You can post a file immediately using this. To post a file immediately, click the <b>Share</b> icon beside a file name. A popup box will appear. Select profiles to post  and fill in necessary details. Finally submit. Follow the image below for more clarification-<br/><br/>
+<img alt="Post now" src="assets/images/image_17.png" style="width: 800px"><br/><br/>
+</p>
+    
+<h4 id="user_guide_facebook_fanpages,_groups_and_events">Facebook fanpages, groups and events</h4>
+<p>
+	You can delete imported facebook fanpages, groups or events from dashboard. But unless the groups and events are imported manually, they will be added again each time you login with the owner facebook id to refresh tokens/pages. From <b>Settings</b> tab of dashboard, you can import groups and events. This is helpful to import the groups you have joined since new version of facebook api does not allow fetching a list of groups the user has joined in.<br>
+	&nbsp;</p>
+<h4 id="user_guide_youtube_upload_default_settings">Youtube upload default settings</h4>
+<p>
+	This option can be set to use common title/description/tags/category for all of your video uploads. When you do not configure individual title/description/tags for each video, the default settings will be used by the app while posting them on facebook or youtube<br>
+	&nbsp;</p>
+<h4 id="user_guide_rss_feeds">RSS feeds</h4>
+<p>
+	<b>RSS Feeds</b> tab in dashboard allows you to add RSS feed URLs and titles as many as within the limits set by admins. These feeds can later be used on scheduling automatic posts in facebook. Please note that RSS feed publishing is only allowed for facebook pages and groups. Twitter is disabled from publishing RSS feeds because this may risk your account to suspension. When RSS feed is used for posting, the schedule will run indefinitely until stopped manually.</p>
+<p>
+	Watch the video to learn how to add RSS feeds : <a href="http://www.youtube.com/watch?v=Sis8ql3Me0k" target="_blank">http://www.youtube.com/watch?v=Sis8ql3Me0k</a>
+</p>
+<br>
+<br>
+<h4 id="user_guide_creating_and_managing_schedule_groups">Creating and managing schedule groups</h4>
+<h5>Understanding the difference between schedule and schedule group</h5>
+A schedule deals with a single profile/page/group/event and posts on that individual profile maintaining a time delay. On the other hand schedule group is a collection of schedules grouped together for easy and bulk editing.
+<p>
+	You can create and manage schedules from dashboard. In this help file we will only focus on some features that you may not understand or seems confusing at first glance.</p>
+<pre class="prettyprint lang-css linenums">
+&quot;Post Sequence&quot;: This option lets you choose how posts are created. They can be randomly chosen from your selected folders or posted as they are positioned inside the folder. Choosing slideshow option will create a slideshow of maximum 100 images from selected folder and post it as a video in selected sites. You can choose slide duration and slide transition effect. When post as album option is chosen, the photos will be posted as album in facebook and twitter. Please note that, albums cannot be posted in facebook groups or events. Photo limit for album is 100 for facebook and 4 for twitter. Among other options, you basically have the option to choose the sequence of which types of files are posted first (Image, text, video)
+
+&quot;Repeat schedule&quot;: If this option is turned on, a schedule will be not be repeated. When all the files are posted, schedule will stop
+
+&quot;Repeat campaign&quot;: If this option is turned on, the campaign or schedule group is restart when all the schedules under this groups is done
+
+&quot;Delete posted files&quot;: When enabled, each file that is posted is deleted from server
+
+&quot;Schedule enabled&quot;: This options lets you enable or disable a schedule group. In case you want to start/stop a schedule group, use this option
+
+&quot;Post Only from&quot; -- &quot;To&quot;: You can choose when the app posts in your social accounts around the days. This is useful when you target audience a specific timezone. Prevent flooding your profile with posts when your fans are sleeping.
+
+&quot;Delete Posts After&quot; and &quot;Delete Action&quot;: These two options allow you to choose if you want your post to be deleted/hidden after certain time period. <b>Hide</b> option can only be used for facebook pages. Please note that if you update this options while a campaign is running, only new posts that were created will be affected. The posts that were already created before change will not be affected.
+
+&quot;Start Campaign From&quot;: When to start posting
+
+&quot;End Campaign At&quot;: When to stop posting under the campaign
+
+&quot;Post a file only once in whole campaign&quot;: If you check this option, a file from your selected folder will be posted only once in one of the selected pages. This means a file will not get posted in two different groups or pages. When all your files from the folder is used for posting, any other incomplete schedule will be marked as complete without posting anything. 
+
+&quot;Synchronous Posting&quot;: If synchronous post is enabled, the 2nd post in any of the selected page will wait until all the selected pages complete their 1st post
+</pre>
+
+<p>
+	Learn how to add schedules: <a href="https://www.youtube.com/watch?v=5oK3y4VRJ_w" target="_blank">https://www.youtube.com/watch?v=5oK3y4VRJ_w</a>
+</p>
+<br>
+<br>
+<h4 id="user_guide_advanced_schedule_options">Advanced Schedule Options</h4>
+<p>
+	Social Ninja offers two advanced schedule options - comment bumping and conditional post deletion. You can apply these options on individual schedule or a group of schedule. When applied to schedule group, all the schedules on the group is affected. On the other hand, when applied to individual schedule only that schedule is affected. We discussed how you can change or add advanced options on schedule group and individual schedule. 
+    <pre class="prettyprint lang-css linenums">
+"Comment bumping": In facebook groups and events, the post which was last commented is shown at the top. So you can set a comment bumping action to bump your posts at a random interval. You can put a list of comments that will be used for bumping. Use spintax for randomness. Posting the same comment all the time may flag your post/comments as spam and hidden.
+
+"Advanced post deletion": You can choose to delete your posts if they do not get enough likes/comments/views/favories/retweets in a specific time. For youtube and facebook pages, you can also schedule a deletion if your posts get enough dislikes/negative impressions in a time frame.
+
+"Reset and Restart All Schedule": If you want to reset schedules and restart posting from anew go with this button.
+
+"Remove All Deletion Trigger": This option will clear all coditional post deletion trigger. Use with caution when you apply this to a schedule group. 
+
+"Stop Bumping": To stop comment bumping choose <b>DISABLE BUMPING</b> option from <b>Bumping Delay</b> dropdown menu.Follow the image shown below and save the settings.
+</pre>
+<br/><br/>
+Watch video instructions on how to use comment bumping <a href="https://www.youtube.com/watch?v=v1jf7Kj_WMU" target="_blank">https://www.youtube.com/watch?v=v1jf7Kj_WMU</a>
+<h5>Picture: Disable bumping</h5>
+<img alt="Disable comment bumping" src="assets/images/image_13.png" style="width: 800px"><br/><br/>
+</p>
+<br>
+<br>
+<h4 id="user_guide_using_advanced_schedule_options">Using advanced scheule options</h4>
+<h5>Using advanced options on schedule group</h5>
+<p>  
+	This option is not available when you create a new schedule group. But when you edit a schedule group, you
+    will find options to use comment bumping. See the following images for better understanding-<br/><br/>
+    <img alt="Comment bumping" src="assets/images/image_8.png" style="width: 500px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img alt="Comment bumping" src="assets/images/image_9.png" style="width: 500px"><br/><br/>
+    When you click <strong>Advanced options</strong> button, the following modal will popup-<br/><br/>
+    <img alt="Comment bumping" src="assets/images/image_10.png" style="width: 800px"><br/><br/>
+    Configure as necessary.
+</p>
+<h5>Using advanced options on individual schedule</h5>
+<p>    
+    If you click on the <b>Explore</b> button next to a schedule group, you will be presented with a list of all the pages/profiles scheduled in this group and a button <b>Options</b> next to each schedule. See images below. Clicking this <b>Options</b> button will give you access to advanced scheduling options like comment bumping and post deletion based on post insights for each individual schedule. Using this option, you can set comment bumping and conditional post deletion trigger for each individual schedule where in the last section we learnt how to adjust these settings for a whole schedule group. The rules are all the same, only difference is that previous section deals with schedule group affecting all schedules in the group and this section deals with individual schedules.
+    <img alt="Comment bumping" src="assets/images/image_11.png" style="width: 500px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img alt="Comment bumping" src="assets/images/image_12.png" style="width: 500px"> 
+</p>
+<br>
+<br>
+<h4 id="user_guide_bulk_import">Bulk facebook groups and events import</h4>
+<p>
+	To find this option navigate to <b>Dashboard > Settings > Import Facebook groups/events</b>. You can import facebook groups and events in bulk in two ways - either put individual numeric IDs of groups & events or put HTML source code of your <b>My Groups</b> facebook page. In most cases you will not have to import events manually because all of your events are already fetched when you add your facebook account. So events can only be added using numeric ID. But in case of groups, bulk import using HTML source code is supported.<br/>
+    HTML source code of the following pages can be used for group-<br/>
+    <a href="https://mbasic.facebook.com/groups/?seemore&refid=27" target="_blank">https://mbasic.facebook.com/groups/?seemore&refid=27</a><br/>
+    <a href="https://mbasic.facebook.com/groups/" target="_blank">https://mbasic.facebook.com/groups/</a><br/><br/>
+    Only public and closed groups can be added this way.
+	&nbsp;</p>
+
+<p>
+	Watch video tutorial here: <a href="https://www.youtube.com/watch?v=BMC_tG9-LxM" target="_blank">https://www.youtube.com/watch?v=BMC_tG9-LxM</a>
+</p>
+
+<h4 id="user_guide_categories">Creating and managing categories</h4>
+<p>
+	From version 1.5 we introduced an option to create and manage page categories. Using this option you can save selected profiles to a category and use them again and again while creating new schedules. This option will ease your page selection task while adding campaigns.
+    <br/>
+    To create a category, go to <b>Categories</b> in dashboard. Then click <b>Create or edit category button</b>. Then select your pages or groups, enter a category name and save it. This category name can be used later while making schedules.<br/><br/>
+    <img alt="" src="assets/images/image_14.png" style="width: 500px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img alt="" src="assets/images/image_15.png" style="width: 500px"> <br/><br/>
+    
+<p>
+	Checkout the video here <a href="https://www.youtube.com/watch?v=hUQcl48rUdc" target="_blank">https://www.youtube.com/watch?v=hUQcl48rUdc</a>
+</p>    
+    
+<h4 id="user_guide_bulk_page_sel">Page and group selection in bulk</h4>    
+    From version 1.5, you can select all of your groups, pages, profiles or all of the saved profiles of a selected category. To you this option click the <b>edit</b> icon beside <b>Selected pages</b> title while making schedule. Follow the images below for better understanding-<br/><br/>
+    <img alt="" src="assets/images/image_16.png" style="width: 800px"><br/><br/>
+    To clear bulk selection click the trash icon beside it.
+</p>
+<h4 id="user_guide_feed_cleanup">Feed cleanup</h4>
+<p>
+	Feed cleanup can be used to bulk delete/hide posts on your social profile. <b>Hide</b> option can only be used for facebook pages. This option can be useful to you when you want to delete lots of posts at a time. Just choose your social profile and the app will present to you a list of all posts made on your profile. Then select which posts you want to delete. In facebook and twitter, you can only delete posts one by one. So this will save your time and effort when a number of posts are need to be deleted. Note: Due to recent changes in facebook api, feed cleanup for facebook can only be used to delete posts made by this app.<br>
+	&nbsp;</p>
+<h4 id="user_guide_facebook_account_merge">Facebook Account Merge</h4>
+<p>
+	From facebook api v2.4, users are assigned app scoped ids. Which means the same user will not get the same id across different apps. So in case your first app is suspended, you might be adding another app in your dashboard. Then login with the new app and add the same facebook accounts with new app. But alas! You will see multiple entity of the same facebook id - one for the last old app and other for the new app. In that case, the facebook account merger is for you. Please select the account you wish to keep in first option box and then choose the account you want to merge with.<br>
+	Remember: When you merge, all the data from 2nd account is deleted except the id of the 2nd account which is retained instead of the id of the 1st account. But all the data of the 1st account is retained. If you added new app, please keep your old id (labelled as EXPIRED) and merge the new one. This action cannot be undone! So choose carefully!<br>
+	&nbsp;</p>
+<h4 id="user_guide_media_editor">Media Editor</h4>
+<p>
+	You can edit images and videos if they are allowed by admin configurations. Maximum allowed filesize is 250MB. With image editor, it is possible to resize/crop image, add watermark text/image or special visual effects. With video editor, you can create screenshot at a specific moment of the video, create a tile of screenshots from entire video, cut or join chunks from video. Media editor can be accessed from <b>Content Creator &gt; Media Editor</b> menu.<br>
+	&nbsp;</p>
+<p>
+	Adding watermark : <a href="http://www.youtube.com/watch?v=Qtrfwih1rKA" target="_blank">http://www.youtube.com/watch?v=Qtrfwih1rKA</a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+	Create watermark from text : <a href="http://www.youtube.com/watch?v=e1IeDkykaxs" target="_blank">http://www.youtube.com/watch?v=e1IeDkykaxs</a>
+</p>
+<br>
+<br>
+<h4 id="user_guide_meme_generator">Meme Generator</h4>
+<p>
+	Meme generator is available at <b>Content Creator &gt; Meme Generator</b> menu. Uploading an image, you can add as many text as you want. You can also reposition the added texts dragging them over the image. After meme creation, don&#39;t forget to import them in your folders<br>
+	&nbsp;</p>
+<h4 id="user_guide_html_to_image_converter">HTML to image converter</h4>
+<p>
+	This tool can convert HTML snippet to image. Use this tool with caution. Do not paste large html codes. It may cause your browser to crash. Access this tool from <b>Content Creator &gt; HTML to Image Creator</b> menu<br>
+	&nbsp;</p>
+<p>
+	Using image editor : <a href="http://www.youtube.com/watch?v=4NhifyjNh1k" target="_blank">http://www.youtube.com/watch?v=4NhifyjNh1k</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    Using video editor : <a href="http://www.youtube.com/watch?v=jomKcoh2Bm4" target="_blank">http://www.youtube.com/watch?v=jomKcoh2Bm4</a>
+</p>
+<br>
+<br>
+<h4 id="user_guide_text_to_watermark_image_converter">Text to watermark image converter</h4>
+<p>
+	This app only allows you to choose watermark images that you uploaded into <b>Content Creator &gt; Creator Tools</b> menu. In case you want to add text as watermark, you can utilize this tool to convert your desired text to watermark image and then import the created image to your watermark list. Now, you can choose that watermark image to be used with your posting schedules.<br>
+	&nbsp;</p>
+<h4 id="user_guide_slideshow_creator">Slideshow creator</h4>
+<p>
+	This tool can be accessed from <b>Content Creator &gt; Creator Tools</b>. Choose your folder, sildeshow duration and transition type. The task will be added in a queue. Once the queue is processed you can download it from <b>Content Creator &gt; Queued Videos</b><br>
+	&nbsp;</p>
+<h4 id="user_guide_uploading_watermark_logos_or_view_finders">Uploading watermark logos or view finders</h4>
+<p>
+	You can upload your watermark logos and view finders from <b>Content Creator &gt; Creator Tools</b>. The use of view finders may be vague to some of the users. View finders can be used in the image editor. When you apply special effects to your image, you will find an option to add a view finder to your image. We added some default view finders for your use. If you wish to use your own view finders, upload it first in <b>Content Creator &gt; Creator Tools</b>.<br>
+	&nbsp;</p>
+<h4 id="user_guide_managing_queued_videos">Managing Queued Videos</h4>
+<p>
+	Video editor and slideshow creator do not process your request immediately. They are added into a queue and processed serially. You can view and manage all your queues from <b>Content Creator &gt; Queued Videos</b>. Download link will appear as soon as the queue is processed. If you want to delete any task, you must delete it before the queue is locked. Once locked you can only delete the queue when it is done. You can add maximum 5 unfinished queues at a time. To add more you must delete some unfinished queue first to make room for new task.<br>
+	&nbsp;</p>
+<h4 id="user_guide_image_and_video_downloader">Image and Video Downloader</h4>
+<p>
+	Image and video downloaded can be used to download images and videos using a link. Among video hosts, this app supports Youtube, Facebook Videos, Vimeo and Dailymotion. Never try to download copyrighted videos. If you upload those copyrighted videos in your social accounts, they will be suspended sooner or later. And image downloader tool can only be used to download images from direct link. No html page link is supported. If a direct link is provided, the app will show image info and a thumbnail and allow you to choose a folder to import the image. Access this tool from <b>Content Creator &gt; Image and Video Downloader</b>.<br>
+	&nbsp;</p>
+
+<p>
+	HTML to Image Conversion : <a href="http://www.youtube.com/watch?v=SzlERVWRwKc" target="_blank">http://www.youtube.com/watch?v=SzlERVWRwKc</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    Meme Generation : <a href="http://www.youtube.com/watch?v=aY4eRHNeULI" target="_blank">http://www.youtube.com/watch?v=aY4eRHNeULI</a>
+</p>
+
+<br>
+<br>
+
+<p>
+	Using Downloader Tool : <a href="http://www.youtube.com/watch?v=2-X5TPwZkZI" target="_blank">http://www.youtube.com/watch?v=2-X5TPwZkZI</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    Comment Bumping : <a href="http://www.youtube.com/watch?v=v1jf7Kj_WMU" target="_blank">http://www.youtube.com/watch?v=v1jf7Kj_WMU</a>
+</p>
+
+<p>
+	<br>
+	<br>
+	<br>
+	&nbsp;</p>
+</section>
+<section id="sources_and_credits">
+	<div class="page-header"><h3>Sources and Credits</h3><hr class="notop"></div>
+<p>
+	The following scripts were used in this app-</p>
+<pre class="prettyprint lang-css linenums">
+BootsWatch, Thomas Park, <a href="https://github.com/thomaspark/bootswatch">https://github.com/thomaspark/bootswatch</a>
+DropZone, Matias Meno, <a href="http://www.dropzonejs.com/">http://www.dropzonejs.com/</a>
+cool php captcha, Jose Rodriguez, <a href="http://code.google.com/p/cool-php-captcha">http://code.google.com/p/cool-php-captcha</a>
+EaselJS, gskinner.com, inc <a href="http://createjs.com/">http://createjs.com/</a>
+rasterizeHTML.js, Christoph Burgmer <a href="http://www.github.com/cburgmer/rasterizeHTML.js">http://www.github.com/cburgmer/rasterizeHTML.js</a>
+Spectrum Colorpicker, Brian Grinstead <a href="https://github.com/bgrins/spectrum">https://github.com/bgrins/spectrum</a>
+Cropper, Fengyuan Chen and contributors <a href="https://github.com/fengyuanchen/cropper">https://github.com/fengyuanchen/cropper</a>
+jQuery-ui-Slider-Pips, Simon Goellner
+vintageJS, Robert Fleischmann
+Select2, <a href="https://github.com/select2/select2">https://github.com/select2/select2</a>
+</pre>
+<p>&nbsp;
+	</p>
+<hr>
+<p>
+	Once again, thank you so much for purchasing this script. As I said at the beginning, I&#39;d be glad to help you if you have any questions relating to this script. No guarantees, but I&#39;ll do my best to assist.</p>
+<p>
+	<strong>InspiredDev</strong></p>
+</section>
+
+	</div>
+</body>
+</html>
